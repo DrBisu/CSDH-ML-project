@@ -6,7 +6,10 @@ async function load_model() {
 let model = load_model();
 
 model.then(function (res) {
-    const inputs = tf.tensor2d([[80, 1, 0, 0, 15, 0, 1, 3, 0, 0]]);
+    const inputs = tf.tensor([[60, 1, 0, 0, 15, 1, 0, 3, 1, 0]]);
     const prediction = res.predict(inputs);
     prediction.print();
 });
+
+
+

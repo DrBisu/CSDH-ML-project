@@ -3,16 +3,70 @@
   <head>
     <title>Understanding HTML File Format</title>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.0.2/dist/tfjs-vis.umd.min.js"></script>
   </head>
  <body>
-    <P>Hello World my friends!
-<input id="userInput" type="number"></input>
+<form>
+    <label for = "Age">Age</label>
+    <input id="Age" type="number">
 
-<button onclick="predict(model)">Predict</button>
+    <br>
 
-<!--  <script> alert('Hello');  </script> -->
-<script src="main1.js"></script>
+    <label for = "Sex">Sex</label>
+    <input id="Sex" type="number">
 
-    </body>
+    <br>
 
-</html>
+    <label for = "Headache">Heacdache</label>
+    <input id="Headache" type="number">
+
+    <br>
+
+    <label for = "Dementia">Dementia</label>
+    <input id="Dementia" type="number">
+
+    <br>
+
+    <label for = "GCS">GCS</label>
+    <input id="GCS" type="number">
+
+    <br>
+
+    <label for = "Motor_Weakness">Motor Weakness</label>
+    <input id="Motor_Weakness" type="number">
+
+    <br>
+
+    <label for = "Midline_Shift">Midline Shift</label>
+    <input id="Midline_Shift" type="number">
+
+    <br>
+
+    <label for = "CSDH_size">Size of CSDH</label>
+    <input id="CSDH_size" type="number">
+
+    <br>
+
+    <label for = "QoL">Quality of Life</label>
+    <input id="QoL" type="number">
+
+    <br>
+
+    <label for = "Anticoagulation">Anticoagulation</label>
+    <input id="Anticoagulation" type="number">
+
+    <br>
+
+    <input type = "button" id ="Predict" value = "Predict">
+
+     <script src="Inputs.js"></script>
+
+
+    <!--   <script> alert('Hello');  </script>
+    <script src="main1.js"></script> -->
+
+ </form>
+     </body>
+
+ </html>
+

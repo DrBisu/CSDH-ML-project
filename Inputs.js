@@ -1,5 +1,5 @@
-var inputs = []
-document.getElementById("Predict").onclick = function () {
+// var inputs = []
+// document.getElementById("Predict").onclick = function () {
     var AgePred = document.getElementById("Age").value;
     var SexPred = document.getElementById("Sex").value;
     var HeadachePred = document.getElementById("Headache").value;
@@ -10,11 +10,11 @@ document.getElementById("Predict").onclick = function () {
     var CSDHPred = document.getElementById("CSDH_size").value;
     var QoLPred = document.getElementById("QoL").value;
     var AnticoagPred = document.getElementById("Anticoagulation").value;
-
-    inputs.push(AgePred);
-    inputs.push(SexPred);
-    inputs.push(HeadachePred);
-    inputs.push(DementiaPred);
+// }
+   // inputs.push(AgePred);
+   // inputs.push(SexPred);
+   // inputs.push(HeadachePred);
+   /* inputs.push(DementiaPred);
     inputs.push(GCSPred);
     inputs.push(MotorPred);
     inputs.push(MidlinePred);
@@ -22,5 +22,21 @@ document.getElementById("Predict").onclick = function () {
     inputs.push(QoLPred);
     inputs.push(AnticoagPred);
 }
+*/
 
-console.log(inputs);
+// console.log(inputs);
+
+async function load_model() {
+    let m = await tf.loadLayersModel('model.json')
+    return m;
+}
+
+let model = load_model();
+
+model.then(function (res) {
+   const inputss = tf.tensor([parseInt(AgePred), parseInt(SexPred), parseInt(HeadachePred), parseInt(DementiaPred), parseInt(GCSPred), parseInt(MotorPred), parseInt(MidlinePred), parseInt(CSDHPred), parseInt(QoLPred), parseInt(AnticoagPred)]);
+    const prediction = res.predict(inputss);
+    prediction.print();
+});
+
+
