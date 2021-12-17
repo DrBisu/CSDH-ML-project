@@ -1,7 +1,7 @@
 document.getElementById("Predict").onclick = function () {
 
     async function load_model() {
-        let m = await tf.loadLayersModel('model2.json')
+        let m = await tf.loadLayersModel('modelSigmoid.json')
         return m;
     }
 
