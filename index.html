@@ -4,11 +4,34 @@
     <title>Understanding HTML File Format</title>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.0.2/dist/tfjs-vis.umd.min.js"></script>
+      <style>
+          .slidecontainer {
+              width: 100%;
+          }
+
+          .slider {
+              -webkit-appearance: none;
+              width: 100%;
+              height: 25px;
+              background: #d3d3d3;
+              outline: none;
+              opacity: 0.7;
+              -webkit-transition: .2s;
+              transition: opacity .2s;
+          }
+
+          .slider:hover {
+              opacity: 1;
+          }
+
+
+      </style>
+
   </head>
  <body>
 <form>
     <label for = "Age">Age</label>
-    <input id="Age" type="number">
+    <input id="Age" type="number" required>
 
     <br>
 
@@ -26,48 +49,66 @@
     <input id="Dementia" type="number" required>
 
     <br>
+    <!--
+        <label for = "GCS">GCS</label>
+        <input id="GCS" type="number" min="3" max="15" required> -->
 
-    <label for = "GCS">GCS</label>
-    <input id="GCS" type="number" required>
+        <div class="slidecontainer">
+            <p>GCS:</p>
+            <input type="range" min="3" max="15"  id="GCS">
+            <p>Value: <span id="demo"></span></p>
 
-    <br>
+        </div>
 
-    <label for = "Motor_Weakness">Motor Weakness</label>
-    <input id="Motor_Weakness" type="number" required>
+    <script>
+        var slider = document.getElementById("GCS");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
 
-    <br>
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        }
+    </script>
 
-    <label for = "Midline_Shift">Midline Shift</label>
-    <input id="Midline_Shift" type="number" required>
 
-    <br>
+        <br>
 
-    <label for = "CSDH_size">Size of CSDH</label>
-    <input id="CSDH_size" type="number" required>
+        <label for = "Motor_Weakness">Motor Weakness</label>
+        <input id="Motor_Weakness" type="number" required>
 
-    <br>
+        <br>
 
-    <label for = "QoL">Quality of Life</label>
-    <input id="QoL" type="number" required>
+        <label for = "Midline_Shift">Midline Shift</label>
+        <input id="Midline_Shift" type="number" required>
 
-    <br>
+        <br>
 
-    <label for = "Anticoagulation">Anticoagulation</label>
-    <input id="Anticoagulation" type="number" required>
+        <label for = "CSDH_size">Size of CSDH</label>
+        <input id="CSDH_size" type="number" required>
 
-    <br>
+        <br>
 
-    <input type = "button" id ="Predict" value = "Predict">
+        <label for = "QoL">Quality of Life</label>
+        <input id="QoL" type="number" required>
 
-    <br>
+        <br>
 
-    <p id="prediction"></p>
-    <p id="decision"></p>
+        <label for = "Anticoagulation">Anticoagulation</label>
+        <input id="Anticoagulation" type="number" required>
 
-    <script src="Inputs.js"></script>
+        <br>
 
-    <!--   <script> alert('Hello');  </script>
-    <script src="main1.js"></script> -->
+        <input type = "button" id ="Predict" value = "Predict">
+
+        <br>
+
+        <p id="prediction"></p>
+        <p id="decision"></p>
+
+        <script src="Inputs.js"></script>
+
+        <!--   <script> alert('Hello');  </script>
+        <script src="main1.js"></script> -->
 
 
         </form>
